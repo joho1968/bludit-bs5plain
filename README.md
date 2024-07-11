@@ -18,7 +18,7 @@ bs5plain is reasonably responsive and supports most Bludit 3.15.x features that 
 * **static sub pages**; these are _not_ displayed at the top of the page
 * **sub pages** are not displayed in the "home" context
 * **sub pages** of a page displayed are shown before the page content, below the title
-* **the *parent page** of a page displayed is shown before the page content, below the title
+* the **parent page** of a page displayed is shown before the page content, below the title
 * **page description**; this is only used for the page's META description, and is not displayed
 * **site slogan** and **site description**
 * **footer**, if configured in Bludit, will be displayed in, well, the footer
