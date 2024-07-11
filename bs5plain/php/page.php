@@ -45,20 +45,22 @@ if ( ! $page->isStatic() && ! $url->notFound() && $page->type() !== 'published' 
                 <div class="bs5plain-page-header">
                     <?php
                     // Title
-                    echo '<h1 class="h4 fw-medium">' . $page->title() . '</h1>';
-                    // Post time
-                    if ( ! $page->isStatic() && ! $url->notFound() ) {
-                        $reading_time = trim( $page->readingTime() );
-                        // $post_time = date_create_immutable( $page->dateRaw() );
-                        $post_time = date_create_immutable( $page->dateRaw() );
-                        if ( $post_time ) {
-                            echo '<div class="small text-secondary">' .
-                                 '<span class="me-2">' . '&#x1F4C5;' . '</span>' .
-                                 '<span class="font-monospace">' .
-                                 $post_time->format( $site->db['dateFormat'] ) .
-                                 ', ' .
-                                 $reading_time .
-                                 '</span></div>';
+                    if ( ! $url->notFound() ) {
+                        echo '<h1 class="h4 fw-medium">' . $page->title() . '</h1>';
+                        // Post time
+                        if ( ! $page->isStatic() ) {
+                            $reading_time = trim( $page->readingTime() );
+                            // $post_time = date_create_immutable( $page->dateRaw() );
+                            $post_time = date_create_immutable( $page->dateRaw() );
+                            if ( $post_time ) {
+                                echo '<div class="small text-secondary">' .
+                                     '<span class="me-2">' . '&#x1F4C5;' . '</span>' .
+                                     '<span class="font-monospace">' .
+                                     $post_time->format( $site->db['dateFormat'] ) .
+                                     ', ' .
+                                     $reading_time .
+                                     '</span></div>';
+                            }
                         }
                     }
                     // Description

@@ -91,6 +91,7 @@ defined( 'BLUDIT' ) || die( 'That did not work as expected.' );
                 ?>
 
                 <?php
+                $pageNotFound = $site->pageNotFound();
                 // Show pages
                 echo '<div>';
                 foreach( $content as $post ) {
@@ -99,6 +100,9 @@ defined( 'BLUDIT' ) || die( 'That did not work as expected.' );
                             // Skip sub pages on home
                             continue;
                         }
+                    } elseif ( $post->key() == $pageNotFound ) {
+                        // Skip our "Page not found page" in this context
+                        continue;
                     }
                     Theme::plugins('pageBegin');
                     // item start

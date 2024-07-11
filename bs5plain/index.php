@@ -112,8 +112,9 @@ defined( 'BLUDIT' ) || die( 'That did not work as expected.' );
             ?>
             <div class="d-flex flex-row flex-wrap flex-sm-row my-3">
                 <?php
+                $pageNotFound = $site->pageNotFound();
                 foreach( $staticContent as $item ) {
-                    if ( ! $item->isChild() ) {
+                    if ( ! $item->isChild() && ! empty( $item->title() ) && $item->key() != $pageNotFound ) {
                         echo '<div class="text-nowrap text-overflow">';
                         echo '<a class="btn btn-outline-secondary btn-sm text-decoration-none ms-1 ms-md-3 mb-2 mb-0-sm" href="' . $item->permalink() . '" role="button">' .
                              $item->title() . '</a>' .

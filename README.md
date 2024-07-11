@@ -47,6 +47,11 @@ Bludit version 3.15.x
 
 ## Changelog
 
+### 1.0.1 (2024-07-11)
+* Static pages without a title are no longer displayed in the upper right-hand corner
+* The title of the page configured as "Page not found" is no longer displayed
+* The page configured as "Page not found" is no longer displayed in the "blog flow" (home)
+
 ### 1.0.0 (2024-07-09)
 * Initial release
 
