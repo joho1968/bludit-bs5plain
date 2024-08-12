@@ -90,7 +90,7 @@ v3 for more details.
 
 You should have received a copy of the GNU AFFERO GENERAL PUBLIC LICENSE v3
 along with the bs5plain package. If not, write to:
-`
+```
 The Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor
 Boston, MA  02110-1301, USA.
