@@ -116,20 +116,6 @@ main > .container {
   padding-left: 5px !important;
 }
 
-code {
-    display:inline-block !important;
-    color: var(--bs-light) !important;
-    border: 1px solid var(--bs-dark) !important;
-    border-radius: 5px !important;
-    padding: 1rem 1.5rem !important;
-    background-color: rgba(0,0,0,.8) !important;
-    page-break-inside: avoid !important;
-    box-decoration-break: clone !important;
-    max-width: 100% !important;
-    overflow: auto !important;
-    word-wrap: break-word !important;
-}
-
 /* Disable transitions */
 .bs5plain-notransition {
     transition-delay: .0ms !important;
@@ -163,4 +149,58 @@ blockquote {
 }
 blockquote > :last-child {
   margin-bottom: 0;
+}
+kbd,samp,pre,code {
+    font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace !important;
+}
+pre,samp,pre,code {
+    font-size: 0.9em !important;
+    line-height: 1.0em !important;
+}
+pre, code {
+    white-space: pre-wrap !important;
+    tab-width: 4 !important;
+}
+pre {
+    background-color: var(--bs-light-bg-subtle) !important;
+    border: 1px solid var(--bs-light-border-subtle) !important;
+    border-radius: .4rem !important;
+    color: var(--bs-light-text-emphasis) !important;
+    line-height: 1.4em !important;
+    margin-bottom: 20px;
+    overflow-wrap: break-word;
+    white-space: pre !important;
+    padding: 0.6em 0.6em !important;
+    overflow-x: auto !important;
+}
+div > code,
+p > code,
+li > code,
+dd > code,
+td > code {
+    background-color: var(--bs-black) !important;
+    color: var(--bs-light) !important;
+    word-wrap: break-word !important;
+    page-break-inside: avoid !important;
+    padding: .3rem .3rem .2rem !important;
+    border: 0 !important;
+    box-decoration-break: clone !important;
+    -webkit-box-decoration-break: clone !important;
+    overflow-x: auto !important;
+    white-space: pre !important;
+}
+div > code {
+    display: block !important;
+    margin-top: 0.5em !important;
+    margin-bottom: 0.6em !important;
+    padding: 0.4rem !important;
+    line-height: 1.3em !important;
+}
+p img {
+    padding: 0.25rem;
+    background-color: var(--bs-body-bg);
+    border: var(--bs-border-width) solid var(--bs-border-color);
+    border-radius: var(--bs-border-radius);
+    max-width: 100%;
+    height: auto;
 }

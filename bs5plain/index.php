@@ -72,6 +72,12 @@ defined( 'BLUDIT' ) || die( 'That did not work as expected.' );
                     "dark" :
                     "light";
             }
+            if (document.readyState === 'complete' ||
+                    (document.readyState !== 'loading' && !document.documentElement.doScroll)) {
+                documentSetup();
+            } else {
+                document.addEventListener('DOMContentLoaded', documentSetup);
+            }
         })();
     </script>
 
@@ -92,18 +98,18 @@ defined( 'BLUDIT' ) || die( 'That did not work as expected.' );
             if ( ! empty( $WHERE_AM_I ) ) {
                 switch( $WHERE_AM_I ) {
                     case 'category':
-                        echo '<div class="my-3 fw-bold border border-secondary rounded-2 p-2 small">';
+                        echo '<div class="my-3 border border-secondary rounded-2 p-2 small">';
                         echo $language->get( 'Browsing content by category' );
                         $categoryKey = $url->slug();
                         $category = new Category( $categoryKey );
-                        echo '<span class="ms-2 badge text-bg-primary">' . $category->name() . '</span></div>';
+                        echo '<span class="ms-2 badge text-bg-primary py-1 px-2">' . $category->name() . '</span></div>';
                         break;
                     case 'tag':
-                        echo '<div class="my-3 fw-bold border border-secondary-subtle rounded-2 p-2 small">';
+                        echo '<div class="my-3 border border-secondary-subtle rounded-2 p-2 small">';
                         echo $language->get( 'Browsing content by tag' );
                         $tagKey = $url->slug();
                         $tag = new Tag( $tagKey );
-                        echo '<span class="ms-2 badge text-bg-primary">' . $tag->name() . '</span></div>';
+                        echo '<span class="ms-1 badge text-bg-primary py-1 px-2">' . $tag->name() . '</span></div>';
                         break;
                     default:
                         break;

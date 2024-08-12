@@ -146,7 +146,7 @@ defined( 'BLUDIT' ) || die( 'That did not work as expected.' );
                     if ( ! empty( $post_tags ) ) {
                         echo '<div class="small">';
                         foreach( $post_tags as $tag_key => $tag_name ) {
-                            echo '<a class="badge text-bg-secondary text-decoration-none me-2" href="' .
+                            echo '<a class="badge bg-secondary-subtle text-body text-decoration-none me-2 p-2" href="' .
                                  DOMAIN_TAGS . $tag_key . '">' .
                                  $tag_name .
                                  '</a>';

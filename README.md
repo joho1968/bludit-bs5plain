@@ -1,14 +1,14 @@
-[![Software License](https://img.shields.io/badge/License-AGPLv3-green.svg?style=flat-square)](LICENSE) [![Bludit 3.15.x](https://img.shields.io/badge/Bludit-3.15.x-blue.svg?style=flat-square)](https://bludit.com)
+[![Software License](https://img.shields.io/badge/License-AGPLv3-green.svg?style=flat-square)](LICENSE)  [![Bludit 3.16.x](https://img.shields.io/badge/Bludit-3.16.x-blue.svg?style=flat-square)](https://bludit.com)
 
 # bs5plain Theme for Bludit
 
-bs5plain, is a Bootstrap 5 theme for Bludit 3.15.x
+bs5plain, is a Bootstrap 5 theme for Bludit 3.15.x (works with 3.16.x)
 
 ## Description
 
 This theme is using the Bootstrap 5.3.x framework. It serves Bootstrap locally and does not use Bludit's included Bootstrap.
 
-bs5plain is reasonably responsive and supports most Bludit 3.15.x features that I've been able to find, including:
+bs5plain is reasonably responsive and supports most Bludit features that I've been able to find, including:
 
 * automatic detection of light and dark mode, as configured in the browser
 * **sidebar**; sidebar content will be displayed on the off-canvas menu
@@ -35,7 +35,7 @@ You can see this theme in action on [bludit-bs5plain.joho.se](https://bludit-bs5
 
 ## Requirements
 
-Bludit version 3.15.x
+Bludit version 3.15.x or Bludit version 3.16.x
 
 ## Installation
 
@@ -46,6 +46,18 @@ Bludit version 3.15.x
 5. Klick on Themes and activate the `bs5plain` theme
 
 ## Changelog
+
+### 1.0.3 (2024-08-12)
+
+* Images in post content should now behave like Bootstrap's "img-thumbnail" and be more responsive.
+* Added missing Telegram logo (thanks to [Roman Kelesidis](https://github.com/belomaxorka) for pointing that out)
+* Modified `<code>` and `<pre>` styling somewhat
+* Minor styling changes
+* Added missing call to initialization after DOM is ready
+
+### 1.0.2 (2024-07-16)
+
+* Not released
 
 ### 1.0.1 (2024-07-11)
 * Static pages without a title are no longer displayed in the upper right-hand corner
@@ -78,7 +90,7 @@ v3 for more details.
 
 You should have received a copy of the GNU AFFERO GENERAL PUBLIC LICENSE v3
 along with the bs5plain package. If not, write to:
-```
+`
 The Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor
 Boston, MA  02110-1301, USA.
@@ -96,6 +108,7 @@ Boston, MA  02110-1301, USA.
 * Xing icon: https://commons.wikimedia.org/wiki/File:Ionicons_logo-xing.svg
 * LinkedIn icon: https://commons.wikimedia.org/wiki/File:LinkedIn_icon.svg
 * VK icon: https://commons.wikimedia.org/wiki/File:B%26W_Vk_icon.png
+* Telegram Icon: https://commons.wikimedia.org/wiki/File:Telegram_logo_icon.svg
 * CodePen icon: CodePen
 * GitHub icon: GitHub
 * GitLab icon: GitLab

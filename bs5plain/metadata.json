@@ -2,9 +2,9 @@
     "author": "Joaquim Homrighausen",
     "email": "joho@webbplatsen.se",
     "website": "https://webbplatsen.se",
-    "version": "1.0.1",
-    "releaseDate": "2024-07-11",
-    "license": "GPLv2",
+    "version": "1.0.3",
+    "releaseDate": "2024-08-12",
+    "license": "AGPLv3",
     "compatible": "3.0",
     "notes": "Responsive Bootstrap 5 theme with support for most of Bludit's features"
 }

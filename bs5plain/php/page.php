@@ -76,7 +76,7 @@ if ( ! $page->isStatic() && ! $url->notFound() && $page->type() !== 'published' 
                             // We show up to three children inline
                             echo '<div class="bg-body-secondary rounded-3 p-2 mb-2">';
                             echo '<div class="small ms-1 p-1">';
-                            echo '<span class="badge text-bg-primary">' . $language->get( 'Child pages' ) . '</span>';
+                            echo '<span class="badge text-bg-primary p-2">' . $language->get( 'Child pages' ) . '</span>';
                             echo '</div>';
                             echo '<ul class="ms-3 p-1">';
                             foreach( $children as $child ) {
@@ -131,7 +131,7 @@ if ( ! $page->isStatic() && ! $url->notFound() && $page->type() !== 'published' 
                     if ( ! empty( $post_tags ) ) {
                         echo '<div class="bsplain-page-content-tags small">';
                         foreach( $post_tags as $tag_key => $tag_name ) {
-                            echo '<a class="badge text-bg-secondary text-decoration-none me-2" href="' .
+                            echo '<a class="badge bg-secondary-subtle text-body text-decoration-none me-2 p-2" href="' .
                                  DOMAIN_TAGS . $tag_key . '">' .
                                  $tag_name .
                                  '</a>';

@@ -24,7 +24,7 @@
  *  Boston, MA  02110-1301, USA.
  */
 ?>
-<footer class="footer mt-auto py-3 bg-body-secondary">
+<footer class="footer mt-auto py-3 bg-body-secondary flex-shrink-1">
     <div class="container-fluid">
         <div class="container-lg d-flex justify-content-between flex-column flex-md-row align-items-center">
             <div class="flex-grow-1 text-body small">
