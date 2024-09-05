@@ -50,7 +50,7 @@ Bludit version 3.15.x or 3.16.x
 ### 1.0.4 (2024-09-05)
 
 * The theme now switches to the preferred mode (dark/light) sooner, which minimizes screen flicker effects.
-* Improved some CSS in regards to <code>, <pre>, and <table> elements.
+* Improved some CSS in regards to `code`, `pre`, and `table` elements.
 * Increased the content width somewhat on larger viewports
 * Improved display of date, it should now be language aware
 * Improved translation and use of locale aware strings
