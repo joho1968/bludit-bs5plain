@@ -67,10 +67,6 @@ defined( 'BLUDIT' ) || die( 'That did not work as expected.' );
                 const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl));
                 const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
                 const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
-                // Figure out light/dark mode
-                let colorMode = window.matchMedia("(prefers-color-scheme: dark)").matches ?
-                    "dark" :
-                    "light";
             }
             if (document.readyState === 'complete' ||
                     (document.readyState !== 'loading' && !document.documentElement.doScroll)) {
@@ -83,8 +79,15 @@ defined( 'BLUDIT' ) || die( 'That did not work as expected.' );
 
     <?php Theme::plugins( 'siteBodyBegin' ); ?>
     <nav class="navbar bg-body-secondary fixed-top mb-5">
-        <div class="container d-flex flex-column flex-sm-row">
-            <div class="my-1 my-md-3">
+        <div class="container d-flex flex-row xflex-sm-row justify-content-center">
+            <!--div class="my-1 my-md-3"-->
+                <button class="btn btn-outline-secondary btn-sm me-2 mb-1 mb-md-0"
+                        type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasmenu" aria-controls="offcanvasmenu"
+                        title="<?php echo $L->get( 'menu' ); ?>"
+                        aria-label="<?php echo $L->get( 'menu' ); ?>">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
                 <a class="navbar-brand bold p-0 m-0 fs-4" href="<?php echo $site->url() ?>">
                     <?php
                     if ( $site->logo() && ! $site->description() && ! $site->slogan() ) {
@@ -93,59 +96,30 @@ defined( 'BLUDIT' ) || die( 'That did not work as expected.' );
                     echo $site->title();
                     ?>
                 </a>
-            </div>
-            <?php
-            if ( ! empty( $WHERE_AM_I ) ) {
-                switch( $WHERE_AM_I ) {
-                    case 'category':
-                        echo '<div class="my-3 border border-secondary rounded-2 p-2 small">';
-                        echo $language->get( 'Browsing content by category' );
-                        $categoryKey = $url->slug();
-                        $category = new Category( $categoryKey );
-                        echo '<span class="ms-2 badge text-bg-primary py-1 px-2">' . $category->name() . '</span></div>';
-                        break;
-                    case 'tag':
-                        echo '<div class="my-3 border border-secondary-subtle rounded-2 p-2 small">';
-                        echo $language->get( 'Browsing content by tag' );
-                        $tagKey = $url->slug();
-                        $tag = new Tag( $tagKey );
-                        echo '<span class="ms-1 badge text-bg-primary py-1 px-2">' . $tag->name() . '</span></div>';
-                        break;
-                    default:
-                        break;
-                }// switch
-            }
-            ?>
-            <div class="d-flex flex-row flex-wrap flex-sm-row my-3">
+            <!--/div-->
+            <div class="d-flex flex-row flex-wrap flex-sm-row my-1">
                 <?php
                 $pageNotFound = $site->pageNotFound();
                 foreach( $staticContent as $item ) {
                     if ( ! $item->isChild() && ! empty( $item->title() ) && $item->key() != $pageNotFound ) {
                         echo '<div class="text-nowrap text-overflow">';
-                        echo '<a class="btn btn-outline-secondary btn-sm text-decoration-none ms-1 ms-md-3 mb-2 mb-0-sm" href="' . $item->permalink() . '" role="button">' .
+                        echo '<a class="btn btn-outline-secondary btn-sm text-decoration-none ms-1 ms-md-3 mb-2 mb-md-1" href="' . $item->permalink() . '" role="button">' .
                              $item->title() . '</a>' .
                              "\n";
                         echo '</div>';
                     }
                 }
                 ?>
-                <button class="btn btn-outline-secondary btn-sm ms-1 ms-md-3 mb-2 mb-0-sm"
-                        type="button" data-bs-toggle="offcanvas"
-                        data-bs-target="#offcanvasmenu" aria-controls="offcanvasmenu"
-                        title="<?php echo $language->get( 'Menu' ); ?>"
-                        aria-label="<?php echo $language->get( 'Menu' ); ?>">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
             </div>
         </div>
     </nav>
 
-    <div class="offcanvas offcanvas-end h-auto bs5plain-notransition bg-body" tabindex="-1" id="offcanvasmenu" aria-labelledby="offcanvasmenuLabel" data-bs-scroll="true" data-bs-keyboard="true" data-bs-backdrop="true" style="--bs-bg-opacity: .9; min-width:250px !important;">
+    <div class="offcanvas offcanvas-start h-auto bs5plain-notransition bg-body" tabindex="-1" id="offcanvasmenu" aria-labelledby="offcanvasmenuLabel" data-bs-scroll="true" data-bs-keyboard="true" data-bs-backdrop="true" style="--bs-bg-opacity: .9; min-width:250px !important;">
       <div class="offcanvas-header">
         <h5 class="offcanvas-title d-none" id="offcanvasmenuLabel">
-            <?php $language->get( 'Offcanvas menu' ); ?>
+            <?php echo $L->get( 'offcanvas-menu' ); ?>
         </h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close">
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="<?php echo $L->get( 'close' ); ?>">
         </button>
       </div>
       <div class="offcanvas-body py-2" role="navigation">
@@ -157,7 +131,7 @@ defined( 'BLUDIT' ) || die( 'That did not work as expected.' );
         ?>
         <div class="bs5offcanvas-section">
             <div class="h5">
-                Social media
+                <?php echo $L->get( 'social-media' ); ?>
             </div>
             <div>
                 <?php

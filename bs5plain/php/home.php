@@ -26,40 +26,49 @@ defined( 'BLUDIT' ) || die( 'That did not work as expected.' );
  */
 ?>
     <?php
+
     $site_logo = $site->logo();
     $site_desc = $site->description();
     $site_slogan = $site->slogan();
-    if ( $site_logo && ( $site_desc || $site_slogan ) ) {
+    if ( $WHERE_AM_I !== 'search' && $WHERE_AM_I !== 'category' && $WHERE_AM_I !== 'tag' && ( $site_logo || $site_desc || $site_slogan ) ) {
         echo '<header>';
-        echo '<div class="container p-5">';
-        echo '<div class="row">';
-        echo '<div class="col-12 col-lg-9 mx-auto mt-5 mt-md-4 mt-lg-0">';
-        if ( $site_logo && ! $site_desc && ! $site_slogan ) {
+        echo '<div class="row my-5">';
+        echo '<div class="col-12 col-lg-9 mx-auto mt-5 mt-md-4 mt-lg-0 mb-4 px-5">';
+        if ( ! empty( $site_logo ) && empty( $site_desc ) && empty( $site_slogan ) ) {
             echo '<div class="mx-auto">';
-            echo '<img class="img-thumbnail rounded-circle mx-auto d-block bs5plain-logo-img" src="' . $site_logo . '" alt="" />';
+            echo '<img class="img-thumbnail rounded-circle mx-auto d-block bs5docs-logo-img" src="' . $site_logo . '" alt="" />';
             echo '</div>';
-        } elseif ( $site_desc && ! $site_logo && ! $site_slogan ) {
-            echo '<div class="h3 mt-2 mx-auto w-75 align-self-center border border-primary">';
+        } elseif ( ! empty( $site_desc ) && empty ( $site_logo ) && empty( $site_slogan ) ) {
+            echo '<h2 class="h1 ms-5 me-4 text-center mt-0 p-0">';
             echo $site_desc;
-            echo '</div>';
-        } elseif ( $site_slogan && ! $site_logo && ! $site_desc ) {
-            echo '<div class="h3 mt-2 mx-auto w-75 align-self-center border border-primary">';
+            echo '</h2>';
+        } elseif ( ! empty( $site_slogan ) && empty( $site_logo ) && empty( $site_desc ) ) {
+            echo '<h2 class="h1 ms-5 me-4 text-center mt-0 p-0">';
+            echo $site_slogan;
+            echo '</h2>';
+        } elseif ( ! empty( $site_slogan ) && empty( $site_logo ) && ! empty( $site_desc ) ) {
+            echo '<h2 class="ms-5 me-4 text-center mt-0 p-0">';
             echo $site_desc;
-            echo '</div>';
+            echo '</h2>';
+            echo '<h4 class="ms-5 me-4 text-center mt-0 p-0 text-body">';
+            echo $site_slogan;
+            echo '</h2>';
         } else {
-            echo '<div class="d-flex flex-row justify-content-center mx-auto">';
-            echo '<div class="align-self-center">';
-            echo '<img class="img-thumbnail rounded-circle bs5plain-logo-img" src="' . $site_logo . '" alt="" />';
-            echo '</div>';
-            echo '<div class="align-self-center ms-2">';
-            if ( ! empty( $site_slogan ) ) {
-                echo '<h1 class="h3">' . $site_slogan . '</h1>';
+            echo '<div class="d-flex flex-row justify-content-center">';
+            if ( ! empty( $site_logo ) ) {
+                echo '<div class="align-self-center">';
+                echo '<img class="img-thumbnail rounded-circle bs5docs-logo-img" src="' . $site_logo . '" alt="" />';
+                echo '</div>';
             }
+            echo '<div class="align-self-center ms-2">';
             if ( ! empty( $site_desc ) ) {
-                if ( empty( $site_slogan ) ) {
-                    echo '<h4>' . $site_desc . '</h4>';
+                echo '<div class="h4 text-center mt-0 p-0">' . $site_desc . '</div>';
+            }
+            if ( ! empty( $site_slogan ) ) {
+                if ( empty( $site_desc ) ) {
+                    echo '<div class="h3 ms-0 ms-lg-4 mt-2 text-center mt-0 p-0">' . $site_slogan . '</div>';
                 } else {
-                    echo '<p>' . $site_desc . '</p>';
+                    echo '<div class="ms-0 ms-lg-4 mt-2 text-center mt-0 p-0">' . $site_slogan . '</div>';
                 }
             }
             echo '</div>';
@@ -67,14 +76,33 @@ defined( 'BLUDIT' ) || die( 'That did not work as expected.' );
         }
         echo '</div>';// col
         echo '</div>';// row
-        echo '</div>';// container
         echo '</header>';
+    } elseif ( ! empty( $WHERE_AM_I ) ) {
+        switch( $WHERE_AM_I ) {
+            case 'category':
+                echo '<header><div class="row"><div class="col text-center">';
+                echo '<div class="d-inline-block my-5 border border-secondary rounded-2 p-3 small">';
+                echo $L->get( 'browsing-content-by-category' );
+                $categoryKey = $url->slug();
+                $category = new Category( $categoryKey );
+                echo '<span class="ms-2 badge text-bg-primary py-1 px-2">' . $category->name() . '</span></div>';
+                echo '</div></div></header>';
+                break;
+            case 'tag':
+                echo '<header><div class="row"><div class="col-12 text-center">';
+                echo '<div class="d-inline-block my-5 border border-subtle rounded-2 p-3 small">';
+                echo $L->get( 'browsing-content-by-tag' );
+                $tagKey = $url->slug();
+                $tag = new Tag( $tagKey );
+                echo '<span class="ms-1 badge text-bg-primary py-1 px-2">' . $tag->name() . '</span></div>';
+                echo '</div></div></header>';
+                break;
+            default:
+                break;
+        }// switch
+    } else {
+        echo '<header>' . '<div class="row my-5"><div class="col"></div></div></header>';
     }
-
-    /*
-    echo '<pre>' . print_r( $plugins['all'], true ) . '</pre>';
-    echo '<pre>' . print_r( $site, true ) . '</pre>';
-    */
     ?>
 
 
@@ -82,14 +110,13 @@ defined( 'BLUDIT' ) || die( 'That did not work as expected.' );
 <section class="mt-5 mt-lg-4 mb-4">
     <div class="container">
         <div class="row">
-            <div class="col-12 col-lg-9 mx-auto">
+            <div class="col-12 col-lg-10 mx-auto">
                 <?php
                 // Make sure there's content
                 if ( empty( $content ) ) {
-                    echo '<div class="text-center p-4"><h3>' . $language->p( 'No pages found' ) . '</h3></div>';
+                    echo '<div class="text-center p-4"><h3>' . $L->get( 'no-pages-found' ) . '</h3></div>';
                 }
                 ?>
-
                 <?php
                 $pageNotFound = $site->pageNotFound();
                 // Show pages
@@ -121,7 +148,7 @@ defined( 'BLUDIT' ) || die( 'That did not work as expected.' );
                                 // Only show "full post" on 'page' and 'home'
                                 echo $post->contentBreak();
                                 if ( $post->readMore() ) {
-                                    echo '<a class="btn btn-outline-success btn-sm text-decoration-none ms-0" href="' . $post->permalink() . '" role="button">' . $language->get( 'Read more' ) . '</a>';
+                                    echo '<a class="btn btn-outline-success btn-sm text-decoration-none ms-0" href="' . $post->permalink() . '" role="button">' . $L->get( 'read-more' ) . '</a>';
                                 }
                                 break;
                             case 'search':
@@ -134,13 +161,13 @@ defined( 'BLUDIT' ) || die( 'That did not work as expected.' );
                     }// ! empty( $WHERE_AM_I )
                     echo '</div>';
                     // Post time
-                    echo '<div class="mb-2 small text-secondary">';
                     $post_time = date_create_immutable( $post->dateRaw() );
                     if ( $post_time !== false ) {
+                        echo '<div class="mb-2 small text-secondary" title="' . $post_time->format( 'Y-m-d, H:i' ) . '">';
                         echo '<span class="me-2">' . '&#x1F4C5;' . '</span>' .
-                             '<span class="font-monospace">' . $post_time->format( $site->db['dateFormat'] ) . '</span>';
+                             '<span class="font-monospace">' . Date::translate( $post_time->format( $site->db['dateFormat'] ) ) . '</span>';
+                        echo '</div>';
                     }
-                    echo '</div>';
                     // Check tags
                     $post_tags = $post->tags( true );
                     if ( ! empty( $post_tags ) ) {
@@ -166,17 +193,17 @@ defined( 'BLUDIT' ) || die( 'That did not work as expected.' );
                     echo '<ul class="pagination">';
                     if ( Paginator::showPrev() ) {
                         echo '<li class="page-item mr-2">' .
-                             '<a class="page-link" href="' . Paginator::previousPageUrl() . '" tabindex="-1" aria-label="' . $language->get( 'Previous' ) . '" . >' .
+                             '<a class="page-link" href="' . Paginator::previousPageUrl() . '" tabindex="-1" aria-label="' . $L->get( 'previous' ) . '" . >' .
                              '<span aria-hidden="true">&laquo;</span>' .
                              '</a>'.
                              '</li>';
                     }
                     echo '<li class="page-item mr-2' . ( Paginator::currentPage() == 1 ? ' disabled':'' ) . '">' .
-                         '<a class="page-link" href="' . Theme::siteUrl() . '" aria-label="' . $language->get( 'Home' ) . '"><span aria-hidden="true">&#x1F3E0;</span></a>' .
+                         '<a class="page-link" href="' . Theme::siteUrl() . '" aria-label="' . $L->get( 'home' ) . '"><span aria-hidden="true">&#x1F3E0;</span></a>' .
                          '</li>';
                     if ( Paginator::showNext() ) {
                         echo '<li class="page-item mr-2">' .
-                             '<a class="page-link" href="' . Paginator::nextPageUrl() . '" tabindex="-1" aria-label="' . $language->get( 'Next' ) . '">' .
+                             '<a class="page-link" href="' . Paginator::nextPageUrl() . '" tabindex="-1" aria-label="' . $L->get( 'next' ) . '">' .
                              '<span aria-hidden="true">&raquo;</span>' .
                              '</a>' .
                              '</li>';

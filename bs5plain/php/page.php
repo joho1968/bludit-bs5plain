@@ -31,7 +31,7 @@ if ( ! $page->isStatic() && ! $url->notFound() && $page->type() !== 'published' 
     echo '<section class="mt-5 mb-5 p-5">' .
          '<container>' .
          '<div class="h3 mt-5 text-center">' .
-         $language->get( 'This post is not available at the moment' ) .
+         $L->get( 'this-post-is-not-available-at-the-moment' ) .
          '</div></container>'.
          '</section>';
     Theme::plugins('pageEnd');
@@ -41,7 +41,7 @@ if ( ! $page->isStatic() && ! $url->notFound() && $page->type() !== 'published' 
 <section class="pt-5 pt-lg-1 mt-5 mt-lg-1 mb-4">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 mx-auto shadow mb-5 bg-body p-3 rounded-2">
+            <div class="col-12 col-lg-10 mx-auto shadow mb-5 bg-body p-3 rounded-2">
                 <div class="bs5plain-page-header">
                     <?php
                     // Title
@@ -53,10 +53,10 @@ if ( ! $page->isStatic() && ! $url->notFound() && $page->type() !== 'published' 
                             // $post_time = date_create_immutable( $page->dateRaw() );
                             $post_time = date_create_immutable( $page->dateRaw() );
                             if ( $post_time ) {
-                                echo '<div class="small text-secondary">' .
+                                echo '<div class="small text-secondary" title="' . $post_time->format( 'Y-m-d, H:i' ) . '">' .
                                      '<span class="me-2">' . '&#x1F4C5;' . '</span>' .
                                      '<span class="font-monospace">' .
-                                     $post_time->format( $site->db['dateFormat'] ) .
+                                     Date::translate( $post_time->format( $site->db['dateFormat'] ) ) .
                                      ', ' .
                                      $reading_time .
                                      '</span></div>';
@@ -76,7 +76,7 @@ if ( ! $page->isStatic() && ! $url->notFound() && $page->type() !== 'published' 
                             // We show up to three children inline
                             echo '<div class="bg-body-secondary rounded-3 p-2 mb-2">';
                             echo '<div class="small ms-1 p-1">';
-                            echo '<span class="badge text-bg-primary p-2">' . $language->get( 'Child pages' ) . '</span>';
+                            echo '<span class="badge text-bg-primary p-2">' . $L->get( 'child-pages' ) . '</span>';
                             echo '</div>';
                             echo '<ul class="ms-3 p-1">';
                             foreach( $children as $child ) {
@@ -91,7 +91,7 @@ if ( ! $page->isStatic() && ! $url->notFound() && $page->type() !== 'published' 
                         } else {
                             // We show >3 children as a dropdown
                             echo '<button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#collapseChildren" aria-expanded="false" aria-controls="collapseChildren">' .
-                                 $language->get( 'Child pages' ) . '&nbsp;' .
+                                 $L->get( 'child-pages' ) . '&nbsp;' .
                                  '</button>';
                             echo '<div class="bg-body-secondary rounded-3 p-2 collapse mt-2" id="collapseChildren">';
                             echo '<ul class="p-0 m-0">';
@@ -110,7 +110,7 @@ if ( ! $page->isStatic() && ! $url->notFound() && $page->type() !== 'published' 
                         echo '<div class="bg-body-secondary rounded-3 p-3 mt-2 small text-truncate">';
                         echo '&raquo;&nbsp;' .
                              '<a class="link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="' . $page->parentMethod( 'permaLink' ) .
-                             '" title="' . $language->get( 'Parent page' ) . ': ' . $page->parentMethod( 'title' ) . '">' .
+                             '" title="' . $L->get( 'Parent page' ) . ': ' . $page->parentMethod( 'title' ) . '">' .
                               $page->parentMethod( 'title' ) .
                               '</a>';
                         echo '</div>';

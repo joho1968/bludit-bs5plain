@@ -11,8 +11,17 @@
     "links": "Länkar",
     "the-most-recent-posts": "Senaste inläggen",
     "tags": "Etiketter",
-
+    "social-media": "Social media",
     "browsing-content-by-category": "Visar innehåll efter kategori",
-    "browsing-content-by-tag": "Visar innehåll efter etikett"
-
+    "browsing-content-by-tag": "Visar innehåll efter etikett",
+    "no-pages-found": "Inga sidor hittades",
+    "read-more": "Läs mer",
+    "previous": "Föregående",
+    "home": "Start",
+    "next": "Nästa",
+    "this-post-is-not-available-at-the-moment": "Detta inlägg är inte tillgängligt just nu",
+    "child-pages": "Undersidor",
+    "parent-page": "Huvudsida",
+    "offcanvas-menu": "Meny",
+    "close": "Stäng"
 }

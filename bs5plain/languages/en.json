@@ -3,5 +3,20 @@
     {
         "name": "Bootstrap 5 Plain Theme",
         "description": "Plain vanilla Bootstrap 5 theme with support for most Bludit features"
-    }
+    },
+
+    "browsing-content-by-category": "Browsing content by category",
+    "browsing-content-by-tag": "Browsing content by tag",
+    "no-pages-found": "No pages found",
+    "read-more": "Read more",
+    "previous": "Previous",
+    "home": "Home",
+    "next": "Next",
+    "this-post-is-not-available-at-the-moment": "This post is not available at the moment",
+    "child-pages": "Child pages",
+    "parent-page": "Parent page",
+    "menu": "Menu",
+    "offcanvas-menu": "Menu",
+    "close": "Close",
+    "social-media": "Social media"
 }

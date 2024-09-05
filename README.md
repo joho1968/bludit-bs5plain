@@ -1,8 +1,8 @@
-[![Software License](https://img.shields.io/badge/License-AGPLv3-green.svg?style=flat-square)](LICENSE)  [![Bludit 3.16.x](https://img.shields.io/badge/Bludit-3.16.x-blue.svg?style=flat-square)](https://bludit.com)
+[![Software License](https://img.shields.io/badge/License-AGPLv3-green.svg?style=flat-square)](LICENSE) [![Bludit 3.15.x](https://img.shields.io/badge/Bludit-3.15.x-blue.svg?style=flat-square)](https://bludit.com) [![Bludit 3.16.x](https://img.shields.io/badge/Bludit-3.16.x-blue.svg?style=flat-square)](https://bludit.com)
 
 # bs5plain Theme for Bludit
 
-bs5plain, is a Bootstrap 5 theme for Bludit 3.15.x (works with 3.16.x)
+bs5plain, is a Bootstrap 5 theme for Bludit
 
 ## Description
 
@@ -35,7 +35,7 @@ You can see this theme in action on [bludit-bs5plain.joho.se](https://bludit-bs5
 
 ## Requirements
 
-Bludit version 3.15.x or Bludit version 3.16.x
+Bludit version 3.15.x or 3.16.x
 
 ## Installation
 
@@ -46,6 +46,16 @@ Bludit version 3.15.x or Bludit version 3.16.x
 5. Klick on Themes and activate the `bs5plain` theme
 
 ## Changelog
+
+### 1.0.4 (2024-09-05)
+
+* The theme now switches to the preferred mode (dark/light) sooner, which minimizes screen flicker effects.
+* Improved some CSS in regards to <code>, <pre>, and <table> elements.
+* Increased the content width somewhat on larger viewports
+* Improved display of date, it should now be language aware
+* Improved translation and use of locale aware strings
+* Improved display of site logo, site slogan, and site description
+* Moved the off-canvas menu to the left side
 
 ### 1.0.3 (2024-08-12)
 
@@ -118,9 +128,9 @@ Boston, MA  02110-1301, USA.
 * Bootstrap for the [Bootstrap 5](https://getboostrap.com) framework
 * Kudos to [Diego Najar](https://github.com/dignajar) for [Bludit](https://bludit.com) :blush:
 
-The bs2plain theme was written by Joaquim Homrighausen while converting :coffee: into code.
+The bs5plain theme was written by Joaquim Homrighausen while converting :coffee: into code.
 
-The bs5plain theme is sponsored by [WebbPlatsen i Sverige AB](https://webbplatsen.se), Stockholm, :sweden: Commercial support and customizations for this plugin is available from WebbPlatsen i Sverige AB in Stockholm, :sweden:
+The bs5plain theme is sponsored by [WebbPlatsen i Sverige AB](https://webbplatsen.se), :sweden: Commercial support and customizations for this plugin is available from WebbPlatsen i Sverige AB in :sweden:
 
 If you find this plugin useful, the author is happy to receive a donation, good review, or just a kind word.
 

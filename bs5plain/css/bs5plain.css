@@ -161,8 +161,15 @@ pre, code {
     white-space: pre-wrap !important;
     tab-width: 4 !important;
 }
+[data-bs-theme=dark] {
+    --color-monostuff: var(--bs-dark-bg-subtle);
+}
+[data-bs-theme=light] {
+    --color-monostuff: var(--bs-light-bg-subtle);
+}
 pre {
-    background-color: var(--bs-light-bg-subtle) !important;
+    background-color: var(--color-monostuff) !important;
+    color: var(--bs-light-text-emphasis) !important;
     border: 1px solid var(--bs-light-border-subtle) !important;
     border-radius: .4rem !important;
     color: var(--bs-light-text-emphasis) !important;
@@ -178,16 +185,20 @@ p > code,
 li > code,
 dd > code,
 td > code {
-    background-color: var(--bs-black) !important;
-    color: var(--bs-light) !important;
+    background-color: var(--color-monostuff) !important;
+    color: var(--bs-light-text-emphasis) !important;
+    border: 1px solid var(--bs-light-border-subtle) !important;
+    border-radius: .4rem !important;
     word-wrap: break-word !important;
     page-break-inside: avoid !important;
     padding: .3rem .3rem .2rem !important;
-    border: 0 !important;
     box-decoration-break: clone !important;
     -webkit-box-decoration-break: clone !important;
     overflow-x: auto !important;
     white-space: pre !important;
+}
+p > code {
+    border: 0 !important;
 }
 div > code {
     display: block !important;
@@ -203,4 +214,32 @@ p img {
     border-radius: var(--bs-border-radius);
     max-width: 100%;
     height: auto;
+}
+caption {
+    margin-bottom: 1em;
+}
+
+table {
+    empty-cells: show;
+    border: 1px solid var(--bs-secondary-bg);
+    width: 100%;
+    font-size: 0.9em;
+}
+
+thead {
+    background-color: var(--bs-secondary-bg);
+    color: var(--bs-secondary-color);
+    text-align: left;
+    vertical-align: bottom;
+}
+
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+
+th, td {
+    padding: 0.5em 1em;
+    font-variant-numeric: oldstyle-nums slashed-zero !important;
 }
