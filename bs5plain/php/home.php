@@ -36,7 +36,7 @@ defined( 'BLUDIT' ) || die( 'That did not work as expected.' );
         echo '<div class="col-12 col-lg-9 mx-auto mt-5 mt-md-4 mt-lg-0 mb-4 px-5">';
         if ( ! empty( $site_logo ) && empty( $site_desc ) && empty( $site_slogan ) ) {
             echo '<div class="mx-auto">';
-            echo '<img class="img-thumbnail rounded-circle mx-auto d-block bs5docs-logo-img" src="' . $site_logo . '" alt="" />';
+            echo '<img class="img-thumbnail rounded-circle mx-auto d-block bs5plain-logo-img" src="' . $site_logo . '" alt="" />';
             echo '</div>';
         } elseif ( ! empty( $site_desc ) && empty ( $site_logo ) && empty( $site_slogan ) ) {
             echo '<h2 class="h1 ms-5 me-4 text-center mt-0 p-0">';
@@ -57,7 +57,7 @@ defined( 'BLUDIT' ) || die( 'That did not work as expected.' );
             echo '<div class="d-flex flex-row justify-content-center">';
             if ( ! empty( $site_logo ) ) {
                 echo '<div class="align-self-center">';
-                echo '<img class="img-thumbnail rounded-circle bs5docs-logo-img" src="' . $site_logo . '" alt="" />';
+                echo '<img class="img-thumbnail rounded-circle bs5plain-logo-img" src="' . $site_logo . '" alt="" />';
                 echo '</div>';
             }
             echo '<div class="align-self-center ms-2">';
