@@ -47,6 +47,10 @@ Bludit version 3.15.x or 3.16.x
 
 ## Changelog
 
+### 1.0.5 (2024-09-06)
+
+* Minor fixes for site header and viewport breakpoints
+
 ### 1.0.4 (2024-09-05)
 
 * The theme now switches to the preferred mode (dark/light) sooner, which minimizes screen flicker effects.

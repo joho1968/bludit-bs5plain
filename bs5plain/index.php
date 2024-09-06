@@ -79,9 +79,9 @@ defined( 'BLUDIT' ) || die( 'That did not work as expected.' );
 
     <?php Theme::plugins( 'siteBodyBegin' ); ?>
     <nav class="navbar bg-body-secondary fixed-top mb-5">
-        <div class="container d-flex flex-row xflex-sm-row justify-content-center">
-            <!--div class="my-1 my-md-3"-->
-                <button class="btn btn-outline-secondary btn-sm me-2 mb-1 mb-md-0"
+        <div class="container d-flex flex-row justify-content-between">
+            <div>
+                <button class="btn btn-outline-secondary btn-sm me-2 mb-1 mb-md-2"
                         type="button" data-bs-toggle="offcanvas"
                         data-bs-target="#offcanvasmenu" aria-controls="offcanvasmenu"
                         title="<?php echo $L->get( 'menu' ); ?>"
@@ -96,8 +96,8 @@ defined( 'BLUDIT' ) || die( 'That did not work as expected.' );
                     echo $site->title();
                     ?>
                 </a>
-            <!--/div-->
-            <div class="d-flex flex-row flex-wrap flex-sm-row my-1">
+            </div>
+            <div class="d-flex flex-row flex-nowrap  mb-1 mb-md-2 pt-2 justify-content-end">
                 <?php
                 $pageNotFound = $site->pageNotFound();
                 foreach( $staticContent as $item ) {
